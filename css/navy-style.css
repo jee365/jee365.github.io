@@ -112,7 +112,7 @@ main {
 .menu__action {
   position: absolute;
   left: 16px;
-  top: 80%;
+  top: 70%;
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
