@@ -247,19 +247,15 @@ main {
 
 /* 목록 스타일 */
 .list__bar li {
-  margin-bottom: 0.8rem;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 12px;
+    /* 불필요한 위치/패딩 제거 */
+    position: static;
+    padding-left: 0;
+    margin-bottom: 0.5rem; /* 항목 간 간격만 살짝 유지 */
 }
 .list__bar li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 3px;
-  width: 3px;
-  height: 24px;
-  background-color: var(--text-color);
+    content: none; /* 세로줄 불릿 제거 */
 }
+
 
 /* ------------------------------ */
 /* 8) 푸터 스타일                */
@@ -313,7 +309,7 @@ footer {
   color: var(--main-color);           /* 남색 적용 */
   margin-bottom: 1rem;                /* 아래쪽 간격 */
   border-bottom: 2px solid var(--main-color);  /* 밑줄 */
-  padding-bottom: 4px;                /* 밑줄과 텍스트 사이 약간 패딩 */
+
   font-size: 1.2rem;                  /* 필요시 크기 조정 */
 }
 
@@ -339,6 +335,7 @@ footer {
   color: var(--accent-color); 
   display: inline-block;
   margin-left: 5px;
+  font-weight: normal;
 }
 .list__year dd {
   margin-left: 1rem;
@@ -365,20 +362,4 @@ footer {
   /* text-align: right; */
 }
 
-/* 햄버거/닫기 버튼 (label) 위치를 오른쪽으로 이동해보고 싶다면 예: */
-.menu__action {
-  position: absolute;
-  top: 15px;  /* 살짝 아래로 내림 */
-  right: 16px; /* 오른쪽 정렬 */
-  width: 32px; 
-  height: 38px;
-  cursor: pointer;
-}
-
-/* (추가) 모바일 메뉴 펼쳤을 때의 ul 높이 등이 안 맞으면 조정 */
-.menu__mo ul {
-  top: 60px; /* 모바일 바 높이만큼 아래 */
-  /* background-color, transition 등 기존 설정대로 유지 */
-  /* 필요시 border-top, padding 등 조절 */
-}
 
