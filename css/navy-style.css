@@ -103,16 +103,25 @@ main {
 /* ------------------------------ */
 .menu__mo {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 60px;                /* 상단바 높이를 확정 */
+  height: 60px; /* 예시 높이 */
   background-color: var(--main-color);
   color: var(--white);
   z-index: 999;
-  display: block;
-  box-sizing: border-box;
-  /* 패딩은 취향대로. 없어도 되고, 0.5rem 1rem 사용해도 됨 */
 }
+.menu__action {
+  position: absolute;
+  left: 1rem;           
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+
 /* 햄버거 버튼 */
 .menu__mo .hamburger {
   width: 25px;
