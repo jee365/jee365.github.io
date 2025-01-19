@@ -307,9 +307,8 @@ footer {
 .title-underline {
   display: inline-block;              /* 폭을 텍스트에 맞춤 */
   color: var(--main-color);           /* 남색 적용 */
-  margin-bottom: 1rem;                /* 아래쪽 간격 */
   border-bottom: 2px solid var(--main-color);  /* 밑줄 */
-
+  margin-top: 2rem;
   font-size: 1.2rem;                  /* 필요시 크기 조정 */
 }
 
