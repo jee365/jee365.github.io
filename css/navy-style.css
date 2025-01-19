@@ -105,11 +105,13 @@ main {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
+  height: 60px;                /* 상단바 높이를 확정 */
   background-color: var(--main-color);
-  padding: 0.5rem 1rem;
   color: var(--white);
   z-index: 999;
-  display: block;  /* 기본: 모바일에서 사용 */
+  display: block;
+  box-sizing: border-box;
+  /* 패딩은 취향대로. 없어도 되고, 0.5rem 1rem 사용해도 됨 */
 }
 /* 햄버거 버튼 */
 .menu__mo .hamburger {
