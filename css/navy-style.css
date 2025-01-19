@@ -303,3 +303,82 @@ footer {
     text-align: center;
   }
 }
+
+/* ================================ */
+/* 1) Education/WorkExperience 타이틀 스타일 */
+/* ================================ */
+/* 예: h3에 .title-underline 클래스를 부여해 밑줄+남색+아래 여백 */
+.title-underline {
+  display: inline-block;              /* 폭을 텍스트에 맞춤 */
+  color: var(--main-color);           /* 남색 적용 */
+  margin-bottom: 1rem;                /* 아래쪽 간격 */
+  border-bottom: 2px solid var(--main-color);  /* 밑줄 */
+  padding-bottom: 4px;                /* 밑줄과 텍스트 사이 약간 패딩 */
+  font-size: 1.2rem;                  /* 필요시 크기 조정 */
+}
+
+/* ================================ */
+/* 2) dl, dt, dd 스타일링           */
+/* ================================ */
+.list__year {
+  margin-bottom: 2rem;  /* 섹션과 섹션 사이 간격 */
+}
+.list__year dt {
+  margin-top: 1rem;
+  font-weight: 700;
+  position: relative;
+}
+.list__year dt span {
+  /* 예: 날짜/기간 글씨 조금 강조 or 색상 */
+  color: var(--text-color); 
+  margin-right: 10px;
+}
+.list__year dt em {
+  /* 직책·학위 부분은 기울임체 */
+  font-style: italic;
+  color: var(--accent-color); 
+  display: inline-block;
+  margin-left: 5px;
+}
+.list__year dd {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+/* (선택) dt + dd 사이 약간 간격 조정 */
+.list__year dt ~ dd {
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--light-color);
+}
+
+/* ================================ */
+/* 3) 모바일 상단바 위치 수정       */
+/* ================================ */
+/* 모바일 메뉴: 햄버거 or X의 위치 조정 */
+.menu__mo {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background-color: var(--main-color);
+  padding: 0.5rem 1rem;
+  z-index: 999;
+  /* 혹시 X 아이콘이 너무 왼쪽 붙으면 아래처럼 right 위치로 옮길 수도 있음 */
+  /* text-align: right; */
+}
+
+/* 햄버거/닫기 버튼 (label) 위치를 오른쪽으로 이동해보고 싶다면 예: */
+.menu__action {
+  position: absolute;
+  top: 15px;  /* 살짝 아래로 내림 */
+  right: 16px; /* 오른쪽 정렬 */
+  width: 32px; 
+  height: 38px;
+  cursor: pointer;
+}
+
+/* (추가) 모바일 메뉴 펼쳤을 때의 ul 높이 등이 안 맞으면 조정 */
+.menu__mo ul {
+  top: 60px; /* 모바일 바 높이만큼 아래 */
+  /* background-color, transition 등 기존 설정대로 유지 */
+  /* 필요시 border-top, padding 등 조절 */
+}
+
