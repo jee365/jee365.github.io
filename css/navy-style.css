@@ -112,7 +112,7 @@ main {
 .menu__action {
   position: absolute;
   left: 16px;
-  top: 70%;
+  top: 100%;
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
@@ -154,7 +154,7 @@ main {
 /* (D) 펼쳐지는 메뉴(ul) - 기본 상태는 숨김 */
 .menu__mo ul {
   position: absolute;
-  top: 60px;  /* 상단바 아래 */
+  top: 40px;  /* 상단바 아래 */
   left: 0;
   width: 0;
   height: 0;
@@ -182,7 +182,7 @@ main {
 /* (E) 체크박스 활성화 -> 펼친 상태 */
 #menu__hamburger:checked + label + ul {
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 40px);
   visibility: visible;
   opacity: 1;
 }
