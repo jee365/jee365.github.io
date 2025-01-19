@@ -315,7 +315,6 @@ footer {
   display: inline-block;
   color: var(--main-color);
   border-bottom: 2px solid var(--main-color); 
-  margin-top: 2rem;
   font-size: 1.3rem;
 }
 
