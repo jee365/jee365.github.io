@@ -12,40 +12,34 @@
 }
 html, body {
   height: 100%;
-  /* 기존 Noto Sans KR + fallback */
   font-family: 'Noto Sans KR', sans-serif;
   color: #333;
   background-color: #f8f8f8;
 }
-li {
-  list-style: none;
-}
+li { list-style: none; }
 a {
   text-decoration: none;
-  color: #333; /* 기본 글자색 */
+  color: #333;
   transition: color 0.3s;
 }
 a:hover {
-  color: #ff9043; /* 오렌지 포인트 */
+  color: #0B2C6B; /* 강조 색(원하면 바꿔도 됨) */
 }
 
 /* ------------------------------ */
 /* 2) CSS 변수 (컬러/전역)        */
 /* ------------------------------ */
 :root {
-  /* 남색 계열 메인컬러 */
-  --main-color: #0F3D91;
-  /* 남색 Hover/포인트 */
-  --accent-color: #0B2C6B;
-
-  /* 샘플로 참고 코드의 오렌지 포인트(#ff9043)도 사용 가능 */
-  --point-color: #ff9043;
-
+  --main-color: #0F3D91; /* 남색 기본 */
+  --accent-color: #0B2C6B; /* 남색 Hover 시 */
   --light-color: #E3EAF7;
   --text-color: #333;
   --white: #ffffff;
   --gray: #777;
   --transition-speed: 0.3s;
+
+  /* 추가 포인트 컬러 (원하면 사용) */
+  --point-color: #ff9043;
 }
 
 /* ------------------------------ */
@@ -58,13 +52,12 @@ a:hover {
   flex-direction: column;
 }
 
-/* 메인 영역: 상단 고정 메뉴 때문에 상단 여백을 확보 (padding-top) */
+/* 메인 영역: 고정 메뉴 때문에 상단 여백 부여 */
 main {
   flex: 1;
-  /* 상단 네비게이션 높이가 50~60px 정도이므로 여백을 잡아줍니다. */
+  /* PC/모바일 구분 없이 일단 80~100px 정도 여백 */
   padding: 100px 25px 20px;
   min-height: calc(100% - 75px);
-  color: var(--text-color);
 }
 .container {
   max-width: 1000px;
@@ -72,85 +65,57 @@ main {
 }
 
 /* ------------------------------ */
-/* 4) PC 메뉴 (고정형 네비게이션) */
+/* 4) PC 메뉴 (fixed nav)         */
 /* ------------------------------ */
 .menu__pc {
-  /* 상단에 고정 */
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  /* 참고 코드: 짙은 배경 rgba(0,0,0,0.9) 사용 */
-  background: rgba(0, 0, 0, 0.9);
-  /* z-index로 다른 요소 위에 위치 */
+  background-color: var(--main-color);
+  text-align: center;
   z-index: 999;
-  display: none;  /* 기본은 숨기고, 큰 화면에서 노출 */
+  display: none; /* 모바일 우선, 나중에 미디어쿼리에서 보여줌 */
 }
-
-/* PC 메뉴 내부 ul 스타일 */
 .menu__pc ul {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  gap: 1.5rem;
   align-items: center;
-  gap: 80px;
-  height: 60px;           /* 메뉴 높이(필요시 조정) */
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-}
-
-/* PC 메뉴 li & a */
-.menu__pc ul li {
-  position: relative;
+  height: 60px;
 }
 .menu__pc ul li a {
-  display: block;
-  padding: 10px;
-  color: #fff;
-  transition: color 0.5s;
-}
-
-/* PC 메뉴 - 활성 상태/hover */
-.menu__pc ul li.on a {
-  color: var(--point-color); /* 예: #ff9043 */
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed);
 }
 .menu__pc ul li a:hover {
-  color: var(--point-color);
+  background-color: var(--accent-color);
 }
 
-/* 밑줄 효과 (슬라이드 애니메이션) */
-.menu__pc ul li a::after {
-  content: "";
-  width: 0;
-  height: 3px;
-  background: var(--point-color);
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  transition: 0.5s;
-}
-.menu__pc ul li a:hover::after,
-.menu__pc ul li.on a::after {
-  width: 100%;
+/* 활성 메뉴 표시 (on) */
+.menu__pc ul li.on a {
+  background-color: var(--accent-color);
 }
 
 /* ------------------------------ */
 /* 5) 모바일 메뉴 (햄버거)        */
 /* ------------------------------ */
 .menu__mo {
-  /* 상단 고정 */
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  z-index: 999;
+  background-color: var(--main-color);
   padding: 0.5rem 1rem;
-  background-color: rgba(0,0,0,0.9);
-  color: #fff;
-  display: block; /* 기본은 모바일 우선 */
+  color: var(--white);
+  z-index: 999;
+  display: block;  /* 기본: 모바일에서 사용 */
 }
+/* 햄버거 버튼 */
 .menu__mo .hamburger {
   width: 25px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--white);
   position: relative;
   transition: transform var(--transition-speed);
 }
@@ -159,7 +124,7 @@ main {
   content: "";
   width: 25px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--white);
   position: absolute;
   left: 0;
 }
@@ -169,75 +134,71 @@ main {
 .menu__mo .hamburger::after {
   top: 8px;
 }
-/* 모바일 메뉴 - 토글 (체크박스) */
+
+/* 체크박스 */
 #menu__hamburger {
   position: absolute;
   left: -9999px;
   top: -9999px;
 }
-.menu__action {
-  cursor: pointer;
-  transition: transform 0.5s ease;
-  width: 32px; 
-  height: 38px;
-  z-index: 50;
-}
-/* 실제 메뉴 ul */
+/* 열리고 닫힐 때 메뉴 표시 */
 .menu__mo ul {
   position: absolute;
-  left: 0; top: 60px; 
+  top: 60px; left: 0;
   width: 100vw;
   height: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.9);
-  border-top: 2px solid var(--point-color);
-  text-align: center;
   opacity: 0;
+  background-color: var(--main-color);
   transition: all 0.3s;
 }
 .menu__mo ul li {
-  margin: 20px 0;
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
 }
 .menu__mo ul li a {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 18px;
 }
-/* on 상태 */
+/* 활성 메뉴 표시 */
 .menu__mo ul li.on a {
-  color: var(--point-color);
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
 }
 
-/* 체크박스가 활성화 되었을 때(=햄버거 클릭) 메뉴 노출 */
+/* 체크박스가 활성화(햄버거 클릭)되면 펼침 */
 #menu__hamburger:checked ~ ul {
-  height: 100vh;
+  height: calc(100vh - 60px);
   opacity: 1;
 }
 
-/* 햄버거 아이콘 애니메이션 */
+/* 햄버거 아이콘 애니메이션(열렸을 때 X자) */
 #menu__hamburger:checked ~ .menu__action .hamburger {
   background: transparent;
 }
 #menu__hamburger:checked ~ .menu__action .hamburger::before {
   top: 0;
   transform: rotate(45deg);
-  background: var(--point-color);
+  background: var(--white);
 }
 #menu__hamburger:checked ~ .menu__action .hamburger::after {
   top: 0;
   transform: rotate(-45deg);
-  background: var(--point-color);
+  background: var(--white);
 }
 
 /* ------------------------------ */
 /* 6) 반응형: PC/모바일 전환       */
 /* ------------------------------ */
-
-/* PC 화면(예: 768px 이상)에서는 PC 메뉴 보이기, 모바일 메뉴 숨기기 */
 @media screen and (min-width: 768px) {
+  /* PC에서는 모바일 메뉴 숨기기 */
   .menu__mo {
     display: none;
   }
+  /* PC 메뉴 보이기 */
   .menu__pc {
     display: block;
   }
@@ -251,52 +212,61 @@ main {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-bottom: 2rem; /* 아래 여백 */
+  margin-bottom: 2rem;
 }
 .about h2 span {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--point-color);
+  color: var(--accent-color);
 }
-/* 사진 왼쪽 정렬 + 텍스트 흐름 */
-.about img {
+.profile {
+  display: block; /* float이나 flex 모두 가능. 여기서는 그냥 block */
+}
+.profile img {
   float: left;
-  margin: 0 25px 25px 0;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-/* float 해제용 (.profile가 감싸면) */
+.profile-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+.profile-desc {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+/* float 해제 */
 .profile::after {
   content: "";
   display: block;
   clear: both;
 }
-.about p {
-  font-size: 18px;
-  line-height: 1.6;
-}
 
-/* 리스트 스타일 */
+/* 목록 스타일 */
 .list__bar li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
   position: relative;
   padding-left: 12px;
-  margin-bottom: 8px;
 }
 .list__bar li::before {
   content: "";
   position: absolute;
-  left: 0; top: 0;
+  left: 0; top: 3px;
   width: 3px;
   height: 24px;
-  background-color: #333;
+  background-color: var(--text-color);
 }
 
 /* ------------------------------ */
 /* 8) 푸터 스타일                */
 /* ------------------------------ */
 footer {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
+  background-color: var(--main-color);
+  color: var(--white);
   text-align: center;
   padding: 1rem 0;
 }
@@ -309,47 +279,27 @@ footer {
 }
 .link__item a {
   font-size: 30px;
-  color: #fff;
+  color: var(--white);
   transition: color 0.3s;
 }
 .link__item a:hover {
-  color: var(--point-color);
+  color: var(--accent-color);
 }
 
 /* ------------------------------ */
-/* 9) 추가 반응형                 */
+/* 9) 추가 반응형 미세조정       */
 /* ------------------------------ */
-
-/* 1024px 이하에서 패딩, 글씨 크기 조정 */
-@media screen and (max-width: 1024px) {
+/* 예: 500px 이하에서 폰트 크기 줄이기 */
+@media screen and (max-width: 500px) {
   main {
-    padding: 100px 20px 20px;
+    padding: 80px 20px 20px; /* 메뉴 높이에 맞춰 상단 여백 축소 */
   }
-  .about img {
+  .profile img {
     float: none;
     display: block;
-    margin: 0 auto 25px;
+    margin: 0 auto 1rem;
   }
-  .container {
-    width: 100%;
-  }
-}
-
-/* 500px 미만일 때 PC 메뉴 숨기고, 모바일 메뉴 보이기 */
-@media screen and (max-width: 500px) {
-  .menu__pc {
-    display: none;
-  }
-  .menu__mo {
-    display: block;
-  }
-  main {
-    padding: 60px 20px 20px; /* 상단 메뉴 높이가 낮아졌다면 좀 줄여도 됨 */
-  }
-  .menu__pc ul li a {
-    padding: 5px;
-    font-size: 14px;
+  .profile-name, .profile-desc {
+    text-align: center;
   }
 }
-
-/* 필요 시 더 세부적으로 조정 가능 */
