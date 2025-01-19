@@ -250,7 +250,7 @@ main {
     /* 불필요한 위치/패딩 제거 */
     position: static;
     padding-left: 0;
-    margin-bottom: 0.5rem; /* 항목 간 간격만 살짝 유지 */
+    margin-bottom: 0.2rem;
 }
 .list__bar li::before {
     content: none; /* 세로줄 불릿 제거 */
