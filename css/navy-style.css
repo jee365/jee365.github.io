@@ -317,9 +317,12 @@ footer {
 }
 
 .title-center-large {
-  font-size: 3rem;    /* 더 크게 */
+  display: inline-block;
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color); 
+  font-size: 2rem;    /* 더 크게 */
   text-align: center; /* 중앙 정렬 */
-  display: block;     /* text-align 작동 위해 block이나 inline-block 가능 */
+  
   margin: 0 auto 1.5rem; /* 가운데 배치 + 아래 간격 */
 }
 
