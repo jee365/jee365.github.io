@@ -349,12 +349,24 @@ footer {
   border-left: 2px solid var(--light-color);
 }
 
-/* iPhone 노치 대응 (선택)
-   html, body { margin:0; padding:0; }
-   meta 태그: <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"> 
-   .menu__mo {
-     padding-top: env(safe-area-inset-top);
-     ...
-   }
-*/
+.Photo ul {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 한 칸 최소 250px, 공간 남으면 추가 칼럼 */
+  gap: 15px; /* 사진 사이 간격 */
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto; /* 위아래 여백, 가운데 정렬 */
+  max-width: 1000px; /* 갤러리 전체 폭 제한 (원하시면 조절) */
+}
+.Photo ul li {
+  background-color: #fff; 
+  border-radius: 8px; 
+  overflow: hidden; /* 코너 둥글게 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.Photo ul li img {
+  width: 100%;
+  height: auto;
+  display: block; /* 블록 요소로 만듦 */
+}
 
