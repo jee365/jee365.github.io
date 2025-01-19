@@ -343,7 +343,7 @@ footer {
 .list__year dt em {
   /* 직책·학위 부분은 기울임체 */
   font-style: italic;
-  color: var(--light-color);
+  color: var(--text-color);
   display: inline-block;
   margin-left: 5px;
   font-weight: 300;
