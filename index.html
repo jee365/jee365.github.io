@@ -13,86 +13,145 @@
         <meta itemprop="description" content="Minjee Kim">
         <meta itemprop="url" content="https://jee365.github.io/">
         <meta itemprop="thumbnailUrl" content="https://jee365.github.io/">
-        <meta
-            itemprop="image"
-            content="https://jee365.github.io/assets/images/photo_1.jpg">
-        <meta
-            itemprop="imageUrl"
-            content="https://jee365.github.io/assets/images/photo_1.jpg">
-        <meta
-            property="og:image"
-            content="https://jee365.github.io/assets/images/photo_1.jpg">
-            
+        <meta itemprop="image" content="https://jee365.github.io/assets/images/photo_1.jpg">
+        <meta itemprop="imageUrl" content="https://jee365.github.io/assets/images/photo_1.jpg">
+        <meta property="og:image" content="https://jee365.github.io/assets/images/photo_1.jpg">
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
         <link rel="stylesheet" href="./css/style.css" />
         <title>Minjee Kim</title>
+        <style>
+            /* 전체 레이아웃 스타일 */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+                background-color: #f4f4f9;
+            }
+            #wrap {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: #ffffff;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                background: #333;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            nav ul li {
+                margin: 0;
+            }
+            nav ul li a {
+                display: block;
+                padding: 10px 20px;
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: background 0.3s ease;
+            }
+            nav ul li a:hover {
+                background: #555;
+            }
+            h2, h3 {
+                color: #333;
+                border-bottom: 2px solid #f4b400;
+                display: inline-block;
+                padding-bottom: 5px;
+                margin-top: 20px;
+            }
+            .profile {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .profile img {
+                border-radius: 50%;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 10px;
+            }
+            .profile strong {
+                color: #f4b400;
+                font-size: 1.8em;
+            }
+            ul.list__bar {
+                margin: 10px 0;
+                padding: 0;
+                list-style: none;
+            }
+            ul.list__bar li {
+                margin: 5px 0;
+                padding-left: 20px;
+                position: relative;
+            }
+            ul.list__bar li::before {
+                content: "•";
+                color: #f4b400;
+                position: absolute;
+                left: 0;
+            }
+            footer .link__item {
+                text-align: center;
+                margin-top: 20px;
+            }
+            footer .link__item a {
+                margin: 0 10px;
+                color: #333;
+                font-size: 1.5em;
+                transition: color 0.3s ease;
+            }
+            footer .link__item a:hover {
+                color: #f4b400;
+            }
+        </style>
     </head>
 
     <body>
         <div id="wrap">
-            <nav class="menu__mo">
-                <input type="checkbox" id="menu__hamburger">
-                <label class="menu__action" for="menu__hamburger">
-                    <div class="hamburger"></div>
-                </label>
+            <nav>
                 <ul>
                     <li class="on"><a href="./index.html">About Me</a></li>
                     <li><a href="./Research.html">Research</a></li>
                     <li><a href="./Publications.html">Publications</a></li>
                     <li><a href="./CV_Minjee Kim.pdf" target="_blank">CV</a></li>
-                    
                     <li><a href="./Photo.html">Photo</a></li>
                 </ul>
             </nav>
-            <nav class="menu__pc">
-                <ul>
-                    <li class="on"><a href="./index.html">About Me</a></li>
-                    <li><a href="./Research.html">Research</a></li>
-                    <li><a href="./Publications.html">Publications</a></li>
-                    <li><a href="./CV_Minjee Kim.pdf" target="_blank">CV</a></li>
-                    
-                    <li><a href="./Photo.html">Photo</a></li>
-                </ul>
-            </nav>
+
             <main>
                 <section class="container">
                     <div class="about">
                         <h2><span>About Me</span></h2>
                         <div class="profile">
-                            <img src="./assets/images/photo_1.jpg" alt="김민지 사진"  width="230">
-                            <p style="font-size:2em">
-                                <strong>Minjee Kim</strong> <br /></p>  
-                            <p> 
-                                I am a Ph.D. student in the <a href="https://stat.ewha.ac.kr" target="_blank" style="color: orange">Department of Statistics</a> at Ewha Womans University, under the supervision of Professor Jae Keun Yoo. <br />
+                            <img src="./assets/images/photo_1.jpg" alt="김민지 사진" width="150">
+                            <p style="font-size:1.2em;">
+                                <strong>Minjee Kim</strong> <br />
+                                I am a Ph.D. student in the <a href="https://stat.ewha.ac.kr" target="_blank" style="color: orange">Department of Statistics</a> at Ewha Womans University, under the supervision of Professor Jae Keun Yoo.<br />
                                 <br />
                                 My research interests include Sufficient Dimension Reduction, Functional Data Analysis, Machine Learning, and Data Science.<br />
-                               
-                                <br />
                             </p>
-                           <!--<p style="font-size:1.7em">
-                               About <br /></p>
-                            <p> 
-                            I received an B.S. in Health education and management, and Statistics from <a href="http://www.ewha.ac.kr/" target="_blank" style="color: orange">Ewha Womans University</a>.<br />
-                            <br />
-                            </p>-->
                         </div>
 
-                        
                         <h3><span>Education</span></h3>
                         <ul class="list__bar">
                             <li>Ph.D. in Statistics, <a href="https://ewha.ac.kr" target="_blank" style="color: orange">Ewha Womans University</a>, 2022.9 ~ </li>
-                            <li>B.S. in in Architectural & Urban Systems Engineering / Statistics, <a href="https://ewha.ac.kr" target="_blank" style="color: orange">Ewha Womans University</a>, 2017.3 ~ 2022.8</li>
-                            <li>Exchange student in Mechanical & Industrial Engineering, School of Graduate Studies, <a href="https://www.mie.utoronto.ca/" target="_blank">University of Toronto</a>, 2025.1 ~ 2025.6</li>
+                            <li>B.S. in Architectural & Urban Systems Engineering / Statistics, <a href="https://ewha.ac.kr" target="_blank" style="color: orange">Ewha Womans University</a>, 2017.3 ~ 2022.8</li>
+                            <li>Exchange student in Mechanical & Industrial Engineering, <a href="https://www.mie.utoronto.ca/" target="_blank">University of Toronto</a>, 2025.1 ~ 2025.6</li>
                             <li>Exchange student in Construction Engineering / Business, Karelia University of Applied Sciences, 2021.1 ~ 2021.6</li>
                         </ul>
-
                     </div>
                 </section>
             </main>
-            
+
             <footer>
                 <div class="link__item">
-                    
                     <a href="https://github.com/jee365" target="_blank"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/minjee-kim-106971344" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="mailto:jee365@ewhain.net"><i class="fa-sharp fa-regular fa-envelope"></i></a>
