@@ -103,7 +103,7 @@ main {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  height: 60px;           /* 상단바 높이 */
+  height: 40px;           /* 상단바 높이 */
   background-color: var(--main-color);
   z-index: 999;
 }
@@ -112,7 +112,7 @@ main {
 .menu__action {
   position: absolute;
   left: 16px;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
@@ -194,12 +194,12 @@ main {
 #menu__hamburger:checked ~ .menu__action .hamburger::before {
   top: 0;
   transform: rotate(45deg);
-  background: var(--point-color);  /* 오렌지 X */
+  background: var(--white);  /* 오렌지 X */
 }
 #menu__hamburger:checked ~ .menu__action .hamburger::after {
   top: 0;
   transform: rotate(-45deg);
-  background: var(--point-color);  /* 오렌지 X */
+  background: var(--white);  /* 오렌지 X */
 }
 
 /* ------------------------------ */
